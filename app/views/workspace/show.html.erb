@@ -1,6 +1,11 @@
 <p>
   <strong>Muisc Workspace for project <%= @project.name  %></strong>
 </p>
+
+
+<p>
+  <strong>Your role on the project: <%= role(current_user, @project) %></strong>
+</p>
 <br>
 
 <%= render "workspace" %>
