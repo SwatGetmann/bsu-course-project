@@ -13,7 +13,11 @@
       <tr>
         <td><%= project.name %></td>
         <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td>
+            <% if project.user_ids.include?(current_user.id) %>
+            <%= link_to 'Edit', edit_project_path(project) %>
+            <% end %>
+          </td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
