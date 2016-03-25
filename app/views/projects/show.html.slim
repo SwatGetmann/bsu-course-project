@@ -1,0 +1,12 @@
+p
+  strong
+    | Name:
+  = @project.name
+p
+  strong
+    | Description:
+  = @project.description
+= link_to "Workspace", workspace_url(id: @project.id)
+= link_to 'Edit', edit_project_path(@project)
+|  | 
+= link_to 'Back', projects_path

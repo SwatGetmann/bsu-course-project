@@ -31,6 +31,10 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem 'slim'
+
+gem 'html2slim'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
