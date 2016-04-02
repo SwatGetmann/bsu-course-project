@@ -5,9 +5,7 @@ p
 div[name="project-list"]
   strong
     | Your Projects:
-  - @user.projects.each do |project|
-    p
-      = link_to "#{project.name}", project_path(project)
+  = react_component 'ProjectTable', { data: @user.projects, title: 'Your Projects' }
 = link_to "New Project", new_project_path
 |  | 
 = link_to 'Edit', edit_user_path(@user)

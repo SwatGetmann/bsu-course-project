@@ -1,23 +1,22 @@
-@ProjectTable = React.createClass
+@UserTable = React.createClass
   getInitialState: ->
-    projects: @props.data
-    title: @props.title
+    users: @props.data
   getDefaultProps: ->
-    projects: []
+    users: []
   render: ->
     React.DOM.div
-      className: 'projects'
+      className: 'users'
       React.DOM.h2
         className: 'title'
-        @state.title
+        'Users'
       React.DOM.table({className: 'table table-bordered'}
         React.DOM.thead null
           React.DOM.tr null, [
             React.DOM.th null, 'Name'
-            React.DOM.th null, 'Description'
+            React.DOM.th null, 'Email'
           ]
         React.DOM.tbody null, [
-          for project in @state.projects
-            React.createElement Project, key: project.id, project: project
+          for user in @state.users
+            React.createElement User, key: user.id, user: user
         ]
       )
