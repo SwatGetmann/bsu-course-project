@@ -5,7 +5,6 @@ p
 div[name="project-list"]
   strong
     | Your Projects:
-  = react_component 'ProjectTable', { data: @user.projects, title: 'Your Projects' }
 = link_to "New Project", new_project_path
 |  | 
 = link_to 'Edit', edit_user_path(@user)
