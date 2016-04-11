@@ -1,12 +1,27 @@
-p
-  strong
-    | Name:
-  = @user.name
-div[name="project-list"]
-  strong
-    | Your Projects:
-= link_to "New Project", new_project_path
-|  | 
-= link_to 'Edit', edit_user_path(@user)
-|  | 
-= link_to 'Back', users_path
+h2#user-name = @user.name
+- if @user == current_user
+  #edit-profile-buttons
+    = link_to "Edit Profile Info", edit_user_registration_path(@user)
+h3#project-list-header Projects
+- unless @user.projects.empty?
+  div#project-list
+    ul
+      - @user.projects.each do |project|
+        li
+          #project-node
+            #name
+              h4 = project.name
+            #description = project.description
+            - if project.rolifications.where(user: @user)[0].role_slug == 'author'
+              #author-buttons
+                = link_to "Edit Project", edit_project_path(project)
+                = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }
+            #role
+              | Role on the project
+              h5 = project.rolifications.where(user: @user)[0].role_slug
+- else
+  h5#notice No projects found.
+#buttons
+  - if @user == current_user
+    = link_to "New Project", new_project_path
+  = link_to 'Back', :back
