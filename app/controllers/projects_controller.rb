@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
-    @project.rolifications.create(user: current_user, role_slug: "author")
+    @project.create_author_rolification(current_user, "author")
     respond_to do |format|
       if @project.save
         format.html { redirect_to :back, notice: 'Project was successfully created.' }
@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
 
   private
 
-    def project_params
-      params.require(:project).permit(:name, :description)
-    end
+  def project_params
+    params.require(:project).permit(:name, :description)
+  end
 end

@@ -11,7 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324150741) do
+ActiveRecord::Schema.define(version: 20160411032908) do
+
+  create_table "audios", force: :cascade do |t|
+    t.binary   "file"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "workspace_id"
+  end
+
+  create_table "avatars", force: :cascade do |t|
+    t.binary   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "branches", force: :cascade do |t|
+    t.string   "name",       default: "untitled-branch", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "commits", force: :cascade do |t|
+    t.string   "description", default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "branch_id"
+  end
+
+  create_table "elements", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "workspace_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "members", ["project_id"], name: "index_members_on_project_id"
+  add_index "members", ["user_id"], name: "index_members_on_user_id"
+
+  create_table "mixers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +68,15 @@ ActiveRecord::Schema.define(version: 20160324150741) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "member_id"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["member_id"], name: "index_roles_on_member_id"
 
   create_table "rolifications", force: :cascade do |t|
     t.integer "user_id"
@@ -28,6 +86,25 @@ ActiveRecord::Schema.define(version: 20160324150741) do
 
   add_index "rolifications", ["project_id"], name: "index_rolifications_on_project_id"
   add_index "rolifications", ["user_id"], name: "index_rolifications_on_user_id"
+
+  create_table "songs", force: :cascade do |t|
+    t.string   "name",       default: "", null: false
+    t.integer  "duration",                null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.binary   "blob"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "commit_id"
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -43,9 +120,19 @@ ActiveRecord::Schema.define(version: 20160324150741) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "avatar_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "workspaces", force: :cascade do |t|
+    t.string   "type",       default: "Workspace::Audio", null: false
+    t.integer  "project_id"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "workspaces", ["project_id"], name: "index_workspaces_on_project_id"
 
 end
