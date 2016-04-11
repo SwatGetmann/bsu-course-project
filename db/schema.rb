@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 20160411032908) do
 
   create_table "roles", force: :cascade do |t|
     t.integer  "member_id"
-    t.string   "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "slug",       default: "Author"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "roles", ["member_id"], name: "index_roles_on_member_id"
