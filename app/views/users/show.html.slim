@@ -10,7 +10,10 @@ h3#project-list-header Projects
         li
           #project-node
             #name
-              h4 = link_to project.name, workspace_path(project)
+              - unless project.private?
+                h4 = link_to project.name, workspace_path(project)
+              - else
+                h4 = private_project_name(project)
             #description = project.description
             - if project.members.first.role.is_author?
               #author-buttons

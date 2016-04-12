@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412033957) do
+ActiveRecord::Schema.define(version: 20160412034504) do
 
   create_table "audios", force: :cascade do |t|
     t.binary   "file"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(version: 20160412033957) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "private",     default: false
   end
 
   create_table "roles", force: :cascade do |t|
