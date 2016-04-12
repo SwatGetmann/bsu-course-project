@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url('../assets/BebasNeueRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#user-name {
+  font-family: "BebasNeueRegular", Arial, Helvetica, sans-serif;
+  font-size: 33px;
+  font-weight: normal;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
