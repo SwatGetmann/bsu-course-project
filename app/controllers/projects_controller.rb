@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
-    @project.create_author_rolification(current_user, "author")
+    @project.create_author(current_user)
     respond_to do |format|
       if @project.save
         format.html { redirect_to :back, notice: 'Project was successfully created.' }

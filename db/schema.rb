@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411032908) do
+ActiveRecord::Schema.define(version: 20160412033957) do
 
   create_table "audios", force: :cascade do |t|
     t.binary   "file"
@@ -77,15 +77,6 @@ ActiveRecord::Schema.define(version: 20160411032908) do
   end
 
   add_index "roles", ["member_id"], name: "index_roles_on_member_id"
-
-  create_table "rolifications", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "project_id"
-    t.string  "role_slug"
-  end
-
-  add_index "rolifications", ["project_id"], name: "index_rolifications_on_project_id"
-  add_index "rolifications", ["user_id"], name: "index_rolifications_on_user_id"
 
   create_table "songs", force: :cascade do |t|
     t.string   "name",       default: "", null: false

@@ -10,15 +10,15 @@ h3#project-list-header Projects
         li
           #project-node
             #name
-              h4 = project.name
+              h4 = link_to project.name, workspace_path(project)
             #description = project.description
-            - if project.rolifications.where(user: @user)[0].role_slug == 'author'
+            - if project.members.first.role.is_author?
               #author-buttons
                 = link_to "Edit Project", edit_project_path(project)
                 = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }
             #role
               | Role on the project
-              h5 = project.rolifications.where(user: @user)[0].role_slug
+              h5 = project.members.first.role.slug
 - else
   h5#notice No projects found.
 #buttons
