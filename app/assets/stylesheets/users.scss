@@ -11,3 +11,83 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+#info {
+  background-color: rgba(134, 179, 238, 0.55);
+  a{
+    color: #678FC1;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+  }
+  a:hover{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #6890c1;
+  }
+}
+
+#below-info {
+  padding: 16px 5px 16px 10px;
+  background-color: #678FC1;
+  color: white;
+}
+
+span#name{
+  padding: 5px 5px 5px 10px;
+  h4 {
+    display: inline-block;
+  }
+}
+
+span#project-list-header{
+  h3 {
+    display: inline-block;
+  }
+  padding-right: 16px;
+}
+
+span#acton-buttons{
+  display: inline-block;
+  a {
+    display: inline;
+    margin: 4px;
+    font-family: "BebasNeueRegular";
+  }
+}
+
+span#role {
+  display: inline;
+  background-color: #eff099;
+  color: #ddab2c;
+  padding: 4px;
+  border: 1px solid #f0d04c;
+  border-radius: 4px;
+  font-family: "BebasNeueRegular";
+  font-size: 18px;
+}
+
+li#project-node{
+  display: block;
+}
+
+#author-buttons{
+  a{
+    color: whitesmoke;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+  }
+  a:hover{
+    color: whitesmoke;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #2F5584;
+  }
+}
+
+#description {
+  padding-left: 5px;
+  padding-bottom: 10px;
+}

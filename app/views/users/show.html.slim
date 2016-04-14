@@ -2,29 +2,31 @@ h2#user-name = @user.name
 - if @user == current_user
   #edit-profile-buttons
     = link_to "Edit Profile Info", edit_user_registration_path(@user)
-h3#project-list-header Projects
+#pre-project-list
+  span#project-list-header
+    h3 Projects
+  span#acton-buttons
+    - if @user == current_user
+      = link_to "New Project", new_project_path
+    = link_to 'Back', :back
 - unless @user.projects.empty?
   div#project-list
-    ul
-      - @user.projects.each do |project|
-        li
-          #project-node
-            #name
-              - unless project.private?
-                h4 = link_to project.name, workspace_path(project)
-              - else
-                h4 = private_project_name(project)
-            #description = project.description
-            - if project.members.first.role.is_author?
-              #author-buttons
-                = link_to "Edit Project", edit_project_path(project)
-                = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }
-            #role
-              | Role on the project
-              h5 = project.members.first.role.slug
+    - @user.projects.each do |project|
+      #project-node
+        #info
+          span#name
+            - unless project.private?
+              h4 = link_to project.name, workspace_path(project)
+            - else
+              h4 = private_project_name(project)
+          span#role = project.members.first.role.slug
+        #below-info
+          #description = project.description
+          - if project.members.first.role.is_author?
+            #author-buttons
+              = link_to "Edit Project", edit_project_path(project)
+              = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }
+
 - else
   h5#notice No projects found.
-#buttons
-  - if @user == current_user
-    = link_to "New Project", new_project_path
-  = link_to 'Back', :back
+
