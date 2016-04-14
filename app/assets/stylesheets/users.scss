@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#edit-profile-buttons{
+  display:inline-block;
+  margin-left: 5px;
+  float: right;
+  top: 32px;
+  position: relative;
+  a {
+    padding: 5px;
+    color: #447dd7;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      color: whitesmoke;
+      background-color: #6890c1;
+    }
+  }
+}
+
+#user-creds{
+  height: 36px;
+}
 
 #user-name {
   font-family: "BebasNeueRegular", Arial, Helvetica, sans-serif;
@@ -10,6 +31,7 @@
   line-height: normal;
   text-transform: uppercase;
   letter-spacing: 1px;
+  display: inline-block;
 }
 
 #info {
@@ -50,6 +72,9 @@ span#project-list-header{
 
 span#acton-buttons{
   display: inline-block;
+  float: right;
+  top: 26px;
+  position: relative;
   a {
     display: inline;
     margin: 4px;
@@ -61,11 +86,16 @@ span#role {
   display: inline;
   background-color: #eff099;
   color: #ddab2c;
-  padding: 4px;
+  padding: 2px 2px 0px 2px;
   border: 1px solid #f0d04c;
   border-radius: 4px;
   font-family: "BebasNeueRegular";
   font-size: 18px;
+  float: right;
+  position: relative;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 4px;
 }
 
 li#project-node{
