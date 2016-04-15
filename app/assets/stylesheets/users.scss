@@ -98,6 +98,22 @@ span#role {
   margin-right: 4px;
 }
 
+span#private {
+  display: inline;
+  background-color: rgba(255, 88, 72, 0.57);
+  color: #ba1b16;
+  padding: 2px 2px 0px 2px;
+  border: 1px solid #ff5747;
+  border-radius: 4px;
+  font-family: "BebasNeueRegular";
+  font-size: 18px;
+  float: right;
+  position: relative;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
 li#project-node{
   display: block;
 }
@@ -120,4 +136,5 @@ li#project-node{
 #description {
   padding-left: 5px;
   padding-bottom: 10px;
+  overflow-wrap: break-word;
 }

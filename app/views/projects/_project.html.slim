@@ -1,11 +1,10 @@
 #project-node
   #info
     span#name
-      - unless project.private?
-        h4 = link_to project.name, project_path(project)
-      - else
-        h4 = private_project_name(project)
+      h4 = link_to project.name, project_path(project)
     span#role = project.members.first.role.slug
+    - if project.private?
+      span#private Private
   #below-info
     #description = project.description
     - if project.members.first.role.is_author?
