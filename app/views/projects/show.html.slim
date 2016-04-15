@@ -1,11 +1,4 @@
-p
-  strong
-    | Name:
-  = @project.name
-p
-  strong
-    | Description:
-  = @project.description
+= render "project", project: @project
 = link_to "Workspace", workspace_url(id: @project.id)
 = link_to 'Edit', edit_project_path(@project)
 |  | 

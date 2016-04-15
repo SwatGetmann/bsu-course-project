@@ -11,23 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324150741) do
+ActiveRecord::Schema.define(version: 20160412034504) do
+
+  create_table "members", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "members", ["project_id"], name: "index_members_on_project_id"
+  add_index "members", ["user_id"], name: "index_members_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "private",     default: false
   end
 
-  create_table "rolifications", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "project_id"
-    t.string  "role_slug"
+  create_table "roles", force: :cascade do |t|
+    t.integer  "member_id"
+    t.string   "slug",       default: "Author"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
-  add_index "rolifications", ["project_id"], name: "index_rolifications_on_project_id"
-  add_index "rolifications", ["user_id"], name: "index_rolifications_on_user_id"
+  add_index "roles", ["member_id"], name: "index_roles_on_member_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

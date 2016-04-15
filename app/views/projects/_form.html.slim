@@ -15,6 +15,10 @@
   .field
     = f.label :description
     br
-    = f.text_field :description
+    = f.text_area :description, size: "24x6"
+  .field
+    = f.label :private
+    br
+    = f.check_box :private
   .actions
     = f.submit

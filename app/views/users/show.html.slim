@@ -1,12 +1,19 @@
-p
-  strong
-    | Name:
-  = @user.name
-div[name="project-list"]
-  strong
-    | Your Projects:
-= link_to "New Project", new_project_path
-|  | 
-= link_to 'Edit', edit_user_path(@user)
-|  | 
-= link_to 'Back', users_path
+#user-creds
+  h2#user-name = @user.name
+  - if @user == current_user
+    #edit-profile-buttons
+      = link_to "Edit Profile Info", edit_user_registration_path(@user)
+#pre-project-list
+  span#project-list-header
+    h3 Projects
+  span#acton-buttons
+    - if @user == current_user
+      = link_to "New Project", new_project_path
+    = link_to 'Back', :back
+- unless @user.projects.empty?
+  div#project-list
+    - @user.projects.each do |project|
+      = render "projects/project", project: project
+- else
+  h5#notice No projects found.
+
