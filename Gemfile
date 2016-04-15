@@ -43,6 +43,7 @@ gem 'html2slim'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
+  gem 'jazzhands'
 end
 
 group :development do
