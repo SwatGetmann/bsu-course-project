@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  get 'branches/new'
+
   devise_for :users
   resources :users
-  resources :projects
+  resources :projects do
+    resources :branches do
+      resources :commits
+    end
+  end
 
   get 'welcome/index'
 
