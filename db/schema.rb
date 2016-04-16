@@ -15,14 +15,12 @@ ActiveRecord::Schema.define(version: 20160415035419) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "name"
-    t.integer  "workspace_id"
     t.integer  "project_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "branches", ["project_id"], name: "index_branches_on_project_id"
-  add_index "branches", ["workspace_id"], name: "index_branches_on_workspace_id"
 
   create_table "commits", force: :cascade do |t|
     t.string   "name"

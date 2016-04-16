@@ -1,3 +1,3 @@
 class Workspace < ActiveRecord::Base
-  has_one :branch
+  belongs_to :branch
 end
