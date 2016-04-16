@@ -34,7 +34,7 @@
   display: inline-block;
 }
 
-#info {
+#up-info {
   background-color: rgba(134, 179, 238, 0.55);
   a{
     color: #678FC1;
@@ -50,7 +50,37 @@
   }
 }
 
-#below-info {
+#mid-info{
+  padding: 16px 5px 16px 10px;
+  background-color: #7AA1DC;
+  color: white;
+  span{
+    font-family: "BebasNeueRegular", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+  }
+  #right{
+    float: right;
+    a {
+      padding: 5px;
+      top: -5px;
+      position: relative;
+      font-family: "BebasNeueRegular";
+      color: whitesmoke;
+      text-decoration: none;
+    }
+    a:hover{
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      background-color: #6890c1;
+    }
+  }
+}
+
+
+
+#down-info {
   padding: 16px 5px 16px 10px;
   background-color: #678FC1;
   color: white;

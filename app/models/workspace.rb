@@ -1,3 +1,3 @@
 class Workspace < ActiveRecord::Base
-  belongs_to :branch
+  belongs_to :branch, inverse_of: :workspace
 end
