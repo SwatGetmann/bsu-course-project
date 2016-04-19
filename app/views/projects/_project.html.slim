@@ -1,11 +1,17 @@
 #project-node
-  #info
+  #up-info
     span#name
       h4 = link_to project.name, project_path(project)
     span#role = project.members.first.role.slug
     - if project.private?
       span#private Private
-  #below-info
+  #mid-info
+    span#branches
+      = branches_short_info(project)
+    span#commits = commits_short_info(project)
+    span#right = link_to "Workspace", workspace_url(id: project.master_branch.id)
+    span#right = link_to "New Branch", new_project_branch_path(project)
+  #down-info
     #description = project.description
     - if project.members.first.role.is_author?
       #author-buttons
