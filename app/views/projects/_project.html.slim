@@ -5,12 +5,18 @@
     span#role = project.members.first.role.slug
     - if project.private?
       span#private Private
+    span#edit-button
+      = link_to "Edit Project", edit_project_path(project)
   #mid-info
-    span#branches
-      = branches_short_info(project)
+    span#branches = branches_short_info(project)
     span#commits = commits_short_info(project)
-    span#right = link_to "Workspace", workspace_url(id: project.master_branch.id)
+    span#right = link_to "Workspace", workspace_url(id: project.id)
     span#right = link_to "New Branch", new_project_branch_path(project)
+    .border-yellow
+    .row
+      .col-md-12
+        = render "branches/branch_list", branches: project.branches
+
   #down-info
     #description = project.description
     - if project.members.first.role.is_author?

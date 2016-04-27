@@ -2,7 +2,6 @@ class BranchesController < ApplicationController
   before_action :preload_project, only: [:new, :create]
 
   def new
-    @project = Project.find(params[:project_id])
     @branch = Branch.new(project: @project)
   end
 
@@ -10,7 +9,7 @@ class BranchesController < ApplicationController
     @branch = @project.branches.create(branch_params)
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to :back, notice: 'Branch was successfully created.' }
+        format.html { redirect_to @project, notice: 'Branch was successfully created.' }
         format.json { render :show, status: :created, location: @branch }
       else
         format.html { render :new }
