@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415035419) do
+ActiveRecord::Schema.define(version: 20160428041830) do
+
+  create_table "branch_members", force: :cascade do |t|
+    t.integer  "branch_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "branch_members", ["branch_id", "user_id"], name: "index_branch_members_on_branch_id_and_user_id", unique: true
+  add_index "branch_members", ["branch_id"], name: "index_branch_members_on_branch_id"
+  add_index "branch_members", ["user_id"], name: "index_branch_members_on_user_id"
 
   create_table "branches", force: :cascade do |t|
     t.string   "name"
@@ -27,9 +38,11 @@ ActiveRecord::Schema.define(version: 20160415035419) do
     t.integer  "branch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "author_id"
   end
 
   add_index "commits", ["branch_id"], name: "index_commits_on_branch_id"
+  add_index "commits", ["id", "author_id"], name: "index_commits_on_id_and_author_id", unique: true
 
   create_table "members", force: :cascade do |t|
     t.integer  "user_id"

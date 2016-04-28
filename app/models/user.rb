@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :members
   has_many :projects, through: :members
+
+  has_many :branch_members
+  has_many :branches, through: :branch_members
+
+  has_many :commits, class_name: "Commit", foreign_key: :author_id
 end

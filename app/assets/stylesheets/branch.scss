@@ -1,3 +1,22 @@
 // Place all the styles related to the branch controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.branch-name {
+  display: inline;
+  background-color: rgba(109, 146, 201, 0.96);
+  color: #ffffff;
+  padding: 2px 2px 0px 2px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  font-family: "BebasNeueRegular";
+  font-size: 18px;
+  position: relative;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
+.branch {
+  padding: 10px;
+}
