@@ -6,12 +6,11 @@ class Branch < ActiveRecord::Base
   has_many :branch_members
   has_many :contributors, through: :branch_members, source: :user
 
-  after_create :create_initial_commit
+  # after_create :create_initial_commit
   after_create :create_workspace
 
-  private
-
-  def create_initial_commit
-    commits.create(name: "Initial commit")
+  def add_initial_commit(user)
+    commit = commits.new(name: "Initial commit", author: user)
+    commit.save!
   end
 end

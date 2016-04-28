@@ -7,6 +7,7 @@ class BranchesController < ApplicationController
 
   def create
     @branch = @project.branches.create(branch_params)
+    @branch.add_initial_commit(current_user)
     respond_to do |format|
       if @branch.save
         format.html { redirect_to @project, notice: 'Branch was successfully created.' }

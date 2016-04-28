@@ -14,7 +14,8 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
-    @project.create_author(current_user)
+    @project.add_author(current_user)
+    @project.initialize_environment(current_user)
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -45,7 +46,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to :root, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

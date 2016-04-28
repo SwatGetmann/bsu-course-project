@@ -3,17 +3,18 @@ class Project < ActiveRecord::Base
   has_many :users, through: :members
   has_many :branches, inverse_of: :project
 
-  after_create :create_branch
-
   validates_presence_of :name
 
-  def create_author(user)
+  def add_author(user)
     members.create(user: user)
     members.first.create_role
   end
 
-  def create_branch
-    branches.create(name: "Master")
+  def initialize_environment(user)
+    branch = branches.new(name: "Master")
+    branch.contributors << user
+    branch.add_initial_commit(user)
+    branch.save!
   end
 
   def author
@@ -25,6 +26,6 @@ class Project < ActiveRecord::Base
   end
 
   def master_branch
-    branches[0]
+    branches.first
   end
 end
