@@ -1,4 +1,4 @@
-= form_for [@project, @branch] do |f|
+= form_for @branch, url: project_branches_path(@project, @branch), method: :post do |f|
   - if @branch.errors.any?
     #error_explanation
       h2

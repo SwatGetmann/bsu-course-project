@@ -28,4 +28,9 @@ class Project < ActiveRecord::Base
   def master_branch
     branches.first
   end
+
+  def last_branch
+    # TODO: implement has_many commits in project and belongs_to project in commits
+    Commits.where(branch: self.branches).last
+  end
 end

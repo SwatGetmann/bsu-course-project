@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  resources :projects do
-    resources :branches do
+  resources :projects, shallow: true do
+    resources :branches, shallow: true do
       resources :commits
     end
   end

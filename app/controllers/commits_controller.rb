@@ -1,11 +1,14 @@
 class CommitsController < ApplicationController
-  before_action :preload_branch, only: [:new, :create]
+  # before_action :preload_branch_and_project, only: [:copy, :show]
 
   def new
+    @branch = Branch.find(params[:branch_id])
     @commit = Commit.new(branch: @branch)
+    @project = @branch.project
   end
 
   def create
+    @branch = Branch.find(params[:branch_id])
     @commit = @branch.commits.create(commit_params)
     @commit.author = current_user
     respond_to do |format|
@@ -19,13 +22,23 @@ class CommitsController < ApplicationController
     end
   end
 
+  def show
+    @commit = Commit.find(params[:id])
+    @branch = @commit.branch
+  end
+
+  def copy
+    # to be implemented
+  end
+
   private
 
   def commit_params
     params.require(:commit).permit(:name)
   end
 
-  def preload_branch
-    @branch = Branch.find(params[:branch_id])
-  end
+  # def preload_branch_and_project
+  #   @branch = Branch.find(params[:branch_id])
+  #   @project = @branch.project
+  # end
 end

@@ -1,11 +1,13 @@
 class BranchesController < ApplicationController
-  before_action :preload_project, only: [:new, :create]
+  before_action :preload, only: [:show]
 
   def new
+    @project = Project.find(params[:project_id])
     @branch = Branch.new(project: @project)
   end
 
   def create
+    @project = Project.find(params[:project_id])
     @branch = @project.branches.create(branch_params)
     @branch.add_initial_commit(current_user)
     respond_to do |format|
@@ -19,13 +21,19 @@ class BranchesController < ApplicationController
     end
   end
 
+  def show
+    @branch = Branch.find(params[:id])
+    @project = @branch.project || Project.find(params[:project_id])
+  end
+
   private
 
   def branch_params
     params.require(:branch).permit(:name)
   end
 
-  def preload_project
-    @project = Project.find(params[:project_id])
+  def preload
+    @branch = Branch.find(params[:id])
+    @project = @branch.project || Project.find(params[:project_id])
   end
 end

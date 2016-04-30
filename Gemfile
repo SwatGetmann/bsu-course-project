@@ -34,6 +34,8 @@ gem 'devise'
 gem 'slim'
 gem 'html2slim'
 
+gem 'active_model_serializers'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

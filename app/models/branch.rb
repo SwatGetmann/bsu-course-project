@@ -13,4 +13,8 @@ class Branch < ActiveRecord::Base
     commit = commits.new(name: "Initial commit", author: user)
     commit.save!
   end
+
+  def last_commit
+    self.commits.last
+  end
 end
