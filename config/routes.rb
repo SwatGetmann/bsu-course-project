@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
+
   resources :projects, shallow: true do
-    resources :branches, shallow: true do
-      resources :commits
-    end
+    resources :branches
+  end
+
+  resources :branches, shallow: true do
+    resources :commits
   end
 
   get 'welcome/index'

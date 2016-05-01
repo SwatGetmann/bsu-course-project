@@ -1,4 +1,4 @@
-= form_for @commit, url: branch_commits_path(@branch, @commit), method: :post do |f|
+= form_for @commit, as: :new_commit, url: branch_commits_path(@branch, @commit), method: :post do |f|
   - if @commit.errors.any?
     #error_explanation
       h2 = pluralize(@commit.errors.count, "error")

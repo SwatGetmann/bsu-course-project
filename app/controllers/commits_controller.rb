@@ -9,6 +9,7 @@ class CommitsController < ApplicationController
 
   def create
     @branch = Branch.find(params[:branch_id])
+    @project = @branch.project
     @commit = @branch.commits.create(commit_params)
     @commit.author = current_user
     respond_to do |format|
@@ -34,7 +35,7 @@ class CommitsController < ApplicationController
   private
 
   def commit_params
-    params.require(:commit).permit(:name)
+    params.require(:new_commit).permit(:name)
   end
 
   # def preload_branch_and_project
