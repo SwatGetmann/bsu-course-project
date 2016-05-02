@@ -20,6 +20,7 @@ class CommitsController < ApplicationController
 
   def show
     @commit = Commit.find(params[:id])
+    @branch = Branch.find(params[:branch_id])
   end
 
   def copy

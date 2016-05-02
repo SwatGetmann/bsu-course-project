@@ -22,15 +22,29 @@ class BranchesController < ApplicationController
   end
 
   def show
-    @branch = Branch.find(params[:id])
-    @project = @branch.project || Project.find(params[:project_id])
   end
 
-  def copy
-    # binding.pry
-    # @branch = Branch.find(params[:id])
-    # @project = @branch.project || Project.find(params[:project_id])
-    # copy_branch_project(@project, @branch)
+  def copy_first_step
+    @origin_branch = Branch.find(params[:id])
+    @project = @origin_branch.project
+    @branch = Branch.new
+  end
+
+  def copy_process
+    @origin_branch = Branch.find(params[:id])
+    @project = @origin_branch.project
+
+    @branch = Branch.new(branch_params.merge(project: @project))
+    @branch.commit_ids = @origin_branch.commit_ids
+    respond_to do |format|
+      if @project.branches << @branch
+        format.html { redirect_to @project, notice: 'Branch was successfully copied.' }
+        format.json { render :show, status: :created, location: @branch }
+      else
+        format.html { render :copy_first_step }
+        format.json { render json: @branch.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

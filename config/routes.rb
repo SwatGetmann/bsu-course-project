@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :branches
   end
 
-  resources :branches, shallow: true do
+  resources :branches do
     resources :commits
   end
 
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   get 'projects/:id/workspace' => 'workspace#show', as: :workspace
 
-  get 'branches/:id/copy' => 'branches#copy', as: :branch_copy
+  get 'branches/:id/copy' => 'branches#copy_first_step', as: :branch_copy
+  post 'branches/:id/copy' => 'branches#copy_process'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
