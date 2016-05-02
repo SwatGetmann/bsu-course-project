@@ -1,17 +1,12 @@
 class CommitsController < ApplicationController
-  # before_action :preload_branch_and_project, only: [:copy, :show]
+  before_action :preload_branch_and_project, only: [:new, :create]
 
   def new
-    @branch = Branch.find(params[:branch_id])
-    @commit = Commit.new(branch: @branch)
-    @project = @branch.project
+    @commit = Commit.new()
   end
 
   def create
-    @branch = Branch.find(params[:branch_id])
-    @project = @branch.project
     @commit = @branch.commits.create(commit_params)
-    @commit.author = current_user
     respond_to do |format|
       if @commit.save
         format.html { redirect_to @project, notice: 'Branch was successfully created.' }
@@ -25,7 +20,6 @@ class CommitsController < ApplicationController
 
   def show
     @commit = Commit.find(params[:id])
-    @branch = @commit.branch
   end
 
   def copy
@@ -35,11 +29,11 @@ class CommitsController < ApplicationController
   private
 
   def commit_params
-    params.require(:new_commit).permit(:name)
+    params.require(:new_commit).permit(:name).merge(author: current_user, project: @project)
   end
 
-  # def preload_branch_and_project
-  #   @branch = Branch.find(params[:branch_id])
-  #   @project = @branch.project
-  # end
+  def preload_branch_and_project
+    @branch = Branch.find(params[:branch_id])
+    @project = @branch.project
+  end
 end

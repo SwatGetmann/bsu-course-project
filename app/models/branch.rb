@@ -10,8 +10,7 @@ class Branch < ActiveRecord::Base
   after_create :create_workspace
 
   def add_initial_commit(user)
-    commit = commits.new(name: "Initial commit", author: user)
-    commit.save!
+    commits << Commit.new(name: "Initial commit", author: user, project: project)
   end
 
   def last_commit
