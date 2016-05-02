@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   has_many :members
   has_many :users, through: :members
   has_many :branches, inverse_of: :project
+  has_many :commits
 
   validates_presence_of :name
 

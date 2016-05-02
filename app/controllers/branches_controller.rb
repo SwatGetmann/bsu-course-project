@@ -26,6 +26,13 @@ class BranchesController < ApplicationController
     @project = @branch.project || Project.find(params[:project_id])
   end
 
+  def copy
+    # binding.pry
+    # @branch = Branch.find(params[:id])
+    # @project = @branch.project || Project.find(params[:project_id])
+    # copy_branch_project(@project, @branch)
+  end
+
   private
 
   def branch_params

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'projects/:id/workspace' => 'workspace#show', as: :workspace
 
+  get 'branches/:id/copy' => 'branches#copy', as: :branch_copy
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
