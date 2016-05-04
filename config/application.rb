@@ -25,5 +25,6 @@ module BsuCourseProject
 
     # Work with fonts in asset pipeline
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.paths << Rails.root.join('app', 'assets', 'img')
   end
 end

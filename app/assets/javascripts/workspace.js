@@ -1,0 +1,11 @@
+//= require ./workspace
+//= require ./workspace/wavesurfer
+//= require ./workspace/webaudio
+//= require ./workspace/drawer.js
+//= require ./workspace/scheduler.js
+//= require ./workspace/storage.js
+//= require ./workspace/jquery.knob.js
+//= require ./workspace/recorder
+//= require ./workspace/effects
+//= require ./workspace/main
+//= require ./workspace/vumeter
