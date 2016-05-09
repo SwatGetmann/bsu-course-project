@@ -175,7 +175,7 @@ var wavesurfer = (function () {
             processData(JSON.parse(this.responseText));
         }
     };
-    xhr.open('GET', 'src/data/samples.txt');
+    xhr.open('GET', '../assets/src/data/samples.txt');
     xhr.send();
 }());
 
@@ -918,4 +918,3 @@ window.onload = function init() {
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
     });
 };
-

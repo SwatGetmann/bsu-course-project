@@ -180,11 +180,11 @@ function createTrackReverb() {
     var url;
     switch (reverb) {
         case 0:
-            url = 'src/data/ir/BelleMeade.wav';
+            url = '../assets/src/data/ir/BelleMeade.wav';
         break;
 
         case 1:
-            url = 'src/data/ir/ir_rev_short.wav'
+            url = '../assets/src/data/ir/ir_rev_short.wav'
         break;
     }
 
@@ -226,7 +226,8 @@ function createTrackDelay() {
     var dryGain = ac.createGain();
     var wetGain = ac.createGain();
     var fbGain = ac.createGain();
-    var delayNode = ac.createDelayNode();
+    debugger;
+    var delayNode = ac.createDelay();
 
     wetGain.connect(delayOut);
     dryGain.connect(delayOut);
@@ -294,4 +295,3 @@ function setTremoloDepthValue(trackNumber, v) {
     //access lfo gain node
     trackTremolos[trackNumber][2].gain.value=v;
 }
-
