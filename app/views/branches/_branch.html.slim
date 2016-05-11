@@ -1,8 +1,8 @@
 .row.branch
   .col-md-3
     .list-item
-    h5.branch-name = branch.name
+    h5.branch-name = link_to branch.name, branch_path(branch)
   .col-md-3
     .commits-list
-      = render "commits/commit_list", commits: branch.commits
+      = render "commits/commit_list", commits: branch.commits, branch: branch
 .border-yellow

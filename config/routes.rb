@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  resources :projects do
-    resources :branches do
-      resources :commits
-    end
+
+  resources :projects, shallow: true do
+    resources :branches
+  end
+
+  resources :branches do
+    resources :commits
   end
 
   get 'welcome/index'
@@ -14,6 +17,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'projects/:id/workspace' => 'workspace#show', as: :workspace
+
+  get 'branches/:id/copy' => 'branches#copy_first_step', as: :branch_copy
+  post 'branches/:id/copy' => 'branches#copy_process'
+
+  get 'demo/workspace' => 'workspace#demo_show', as: :demo_workspace
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
