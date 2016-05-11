@@ -1,5 +1,5 @@
 $(document).ready ->
-  debugger
+  user_id = 2
   $('#calendar').fullCalendar
     editable: true,
     header:
@@ -11,17 +11,17 @@ $(document).ready ->
     slotMinutes: 30,
 
     eventSources: [{
-      url: '/commits',
+      url: Routes.user_commits_path(user_id),
     }],
 
     timeFormat: 'h:mm t{ - h:mm t} ',
     dragOpacity: "0.5"
 
-    eventDrop: (commit, dayDelta, minuteDelta, allDay, revertFunc) ->
-      updateCommit(event);
+    # eventDrop: (commit, dayDelta, minuteDelta, allDay, revertFunc) ->
+    #   updateCommit(event);
 
-    eventResize: (commit, dayDelta, minuteDelta, revertFunc) ->
-      updateCommit(event);
+    # eventResize: (commit, dayDelta, minuteDelta, revertFunc) ->
+    #   updateCommit(event);
 
 
 updateCommit = (the_commit) ->

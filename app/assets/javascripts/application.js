@@ -17,4 +17,5 @@
 //= require fullcalendar
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require js-routes
 //= require calendar

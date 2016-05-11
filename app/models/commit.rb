@@ -11,9 +11,11 @@ class Commit < ActiveRecord::Base
     {
       :id => self.id,
       :name => self.name,
+      :description => self.name,
       :created_at => created_at.rfc822,
       :updated_at => updated_at.rfc822,
-      :url => Rails.application.routes.url_helpers.commit_path(id),
+      # :url => Rails.application.routes.url_helpers.commit_path(id),
+      :url => "#"
     }
 
   end
