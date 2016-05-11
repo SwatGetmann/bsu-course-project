@@ -8,17 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w(
-  lib/bootstrap.min.js
-  lib/bootstrap-button.js
-  workspace/wavesurfer.js
-  workspace/webaudio.js
-  workspace/drawer.js
-  workspace/scheduler.js
-  workspace/storage.js
-  workspace/jquery.knob.js
-  workspace/recorder.js
-  workspace/effects.js
-  workspace/main.js
-  workspace/vumeter.js
-)
+Rails.application.config.assets.precompile << '*.js'
