@@ -10,10 +10,10 @@
     - if @user == current_user
       = link_to "New Project", new_project_path
     = link_to 'Back', :back
+#calendar
 - unless @user.projects.empty?
   div#project-list
     - @user.projects.each do |project|
       = render "projects/project", project: project
 - else
   h5#notice No projects found.
-
