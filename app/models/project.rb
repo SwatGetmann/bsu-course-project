@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
 
+  scope :not_private, -> (){ where(private: false) }
+
   def add_author(user)
     members.create(user: user)
     members.first.create_role
@@ -19,7 +21,7 @@ class Project < ActiveRecord::Base
   end
 
   def author
-    members.first if members.first.role.is_author?
+    members.first.user if members.first.role.is_author?
   end
 
   def commits_count

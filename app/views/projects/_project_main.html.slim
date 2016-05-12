@@ -1,0 +1,8 @@
+.col-md-6
+  .row.project-container
+    .name
+      h2 = link_to project.name, project_path(project)
+    .author
+      h4 = link_to project.author.name, user_path(project.author)
+    .genre
+      | Genre: Blues
