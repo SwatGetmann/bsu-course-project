@@ -62,9 +62,9 @@ class UsersController < ApplicationController
   end
 
   def commits
-    @commits = @user.commits
+    @commits = @user.commits.between(params['start'], params['end']) if (params['start'] && params['end'])
     respond_to do |format|
-      format.json { render :json => @commits }
+      format.json { render json: @commits, :root => false }
     end
   end
 

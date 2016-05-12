@@ -1,7 +1,6 @@
 $(document).ready ->
   user_id = 2
   $('#calendar').fullCalendar
-    editable: true,
     header:
       left: 'prev,next today',
       center: 'title',
@@ -10,12 +9,9 @@ $(document).ready ->
     height: 500,
     slotMinutes: 30,
 
-    eventSources: [{
-      url: Routes.user_commits_path(user_id),
-    }],
-
-    timeFormat: 'h:mm t{ - h:mm t} ',
-    dragOpacity: "0.5"
+    events: {
+     url: Routes.user_commits_path(user_id)
+    }
 
     # eventDrop: (commit, dayDelta, minuteDelta, allDay, revertFunc) ->
     #   updateCommit(event);
