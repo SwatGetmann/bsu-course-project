@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get 'users/:id/commits' => 'users#commits', as: :user_commits
+
   get 'projects/:id/workspace' => 'workspace#show', as: :workspace
 
   get 'branches/:id/copy' => 'branches#copy_first_step', as: :branch_copy

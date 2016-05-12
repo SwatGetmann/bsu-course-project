@@ -1,6 +1,14 @@
 class CommitsController < ApplicationController
   before_action :preload_branch_and_project, only: [:new, :create]
 
+  def index
+    @commits = Commit.scoped
+    @commits = Commit.between(params['start'], params['end']) if (params['start'] && params['end'])
+    respond_to do |format|
+      format.json { render :json => @commits }
+    end
+  end
+
   def new
     @commit = Commit.new()
   end
@@ -21,6 +29,11 @@ class CommitsController < ApplicationController
   def show
     @commit = Commit.find(params[:id])
     @branch = Branch.find(params[:branch_id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @commit }
+    end
   end
 
   def copy

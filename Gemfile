@@ -37,6 +37,10 @@ gem 'html2slim'
 
 gem 'active_model_serializers'
 
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+gem "js-routes"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
