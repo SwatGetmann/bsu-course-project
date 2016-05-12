@@ -10,7 +10,7 @@ class Commit < ActiveRecord::Base
   def as_json(options = {})
     {
       :title => self.name,
-      :start => created_at.to_date.iso8601
+      :start => created_at.iso8601
     }
   end
 end

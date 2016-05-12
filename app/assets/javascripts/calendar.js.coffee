@@ -1,5 +1,5 @@
 $(document).ready ->
-  user_id = 2
+  user_id = $('#calendar').data('userId')
   $('#calendar').fullCalendar
     header:
       left: 'prev,next today',
