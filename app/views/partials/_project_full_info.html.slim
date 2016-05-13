@@ -2,17 +2,43 @@
   .row.project-container.grey-links
     .col-md-6
       .row.headers
-        .project-name
-          h1 = link_to project.name, project_path(project)
-        .author
-          h3 = link_to project.author.name, user_path(project.author)
-    .col-md-6
-      .row.header-info
-        .role
-          h3
-            |  Your role on the project: 
+        .col-md-12
+          .project-name
+            h1 = link_to project.name, project_path(project)
+          .author
+            h3 = link_to project.author.name, user_path(project.author)
+          .description
+            h5 = project.description
+    .col-md-6.header-info
+      .row
+        .col-md-6
+          p
+            |  Your role on the project:
             = current_user_role(project)
+        .col-md-6
+          a[href="#"]
+            | Set Role?
+      .row
+        - if current_user_is_author(project)
+          .col-md-3
+            .edit.button
+              = link_to "Edit Project", edit_project_path(project)
   .border-line
+  .row
+    .col-md-6
+      h3.header-stylish
+        | Branches & Commits
+      = render "branches/branch_list", branches: project.branches
+    .col-md-6
+      h3.header-stylish
+        | Contributors
+  .row
+    .col-md-9
+    .col-md-3
+      h3.header-stylish
+        | Links
+      = link_to "Edit Project", edit_project_path(project)
+      = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }
 
 
 .project-node
@@ -35,8 +61,6 @@
         = render "branches/branch_list", branches: project.branches
 
   #down-info
-    #description = project.description
+    #description
     - if project.members.first.role.is_author?
       #author-buttons
-        = link_to "Edit Project", edit_project_path(project)
-        = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }

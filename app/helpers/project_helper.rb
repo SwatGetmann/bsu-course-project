@@ -17,4 +17,8 @@ module ProjectHelper
       ROLE_UNSET
     end
   end
+
+  def current_user_is_author (project)
+    project.author == current_user
+  end
 end

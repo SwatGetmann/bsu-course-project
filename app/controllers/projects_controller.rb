@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
   end
 
   def check_membership
-    unless current_user.projects.include? @project
+    if @project.private? && current_user.projects.exclude?(@project)
       flash[:error] = "You cannot view this project, because it is private"
       redirect_to :back # halts request cycle
     end
