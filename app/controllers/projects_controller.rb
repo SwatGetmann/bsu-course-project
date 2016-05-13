@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :private)
+    params.require(:project).permit(:name, :description, :private, :image, :remove_image)
   end
 
   def check_membership

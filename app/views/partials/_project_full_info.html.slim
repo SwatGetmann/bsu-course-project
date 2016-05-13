@@ -9,6 +9,8 @@
             h3 = link_to project.author.name, user_path(project.author)
           .description
             h5 = project.description
+          .image
+            = image_tag @project.image.thumb.url
     .col-md-6.header-info
       .row
         .col-md-6

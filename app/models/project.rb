@@ -6,6 +6,10 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
 
+  mount_uploader :image, ImageUploader
+  validates_processing_of :image
+  validate :image_size_validation
+
   scope :not_private, -> (){ where(private: false) }
 
   def add_author(user)
@@ -39,5 +43,10 @@ class Project < ActiveRecord::Base
 
   def find_members(user)
     members.with_user(user)
+  end
+
+  private
+  def image_size_validation
+    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
   end
 end
