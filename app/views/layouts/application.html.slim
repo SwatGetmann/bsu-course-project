@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | BsuCourseProject
+      | DAViCS
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -15,7 +15,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to "BSU-CP-AudioVCS", root_path, class: 'navbar-brand'
+          = link_to "DAViCS", root_path, class: 'navbar-brand'
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             - if user_signed_in?
@@ -43,6 +43,6 @@ html
           - if alert
             p.alert.alert-danger
               = alert
-      .row
-        .col-md-12
+      .col-md-12
+        .row
           = yield
