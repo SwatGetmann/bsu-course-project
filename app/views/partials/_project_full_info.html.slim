@@ -1,0 +1,42 @@
+.col-md-12
+  .row.project-container.grey-links
+    .col-md-6
+      .row.headers
+        .project-name
+          h1 = link_to project.name, project_path(project)
+        .author
+          h3 = link_to project.author.name, user_path(project.author)
+    .col-md-6
+      .row.header-info
+        .role
+          h3
+            |  Your role on the project: 
+            = current_user_role(project)
+  .border-line
+
+
+.project-node
+  .up-info
+    span#name
+      h4 = link_to project.name, project_path(project)
+    span#role = project.members.first.role.slug
+    - if project.private?
+      span#private Private
+    span#edit-button
+      = link_to "Edit Project", edit_project_path(project)
+  #mid-info
+    span#branches = branches_short_info(project)
+    span#commits = commits_short_info(project)
+    span#right = link_to "Workspace", workspace_url(id: project.id)
+    span#right = link_to "New Branch", new_project_branch_path(project)
+    .border-yellow
+    .row
+      .col-md-12
+        = render "branches/branch_list", branches: project.branches
+
+  #down-info
+    #description = project.description
+    - if project.members.first.role.is_author?
+      #author-buttons
+        = link_to "Edit Project", edit_project_path(project)
+        = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }

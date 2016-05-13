@@ -1,9 +1,4 @@
-.last-ten-projects {
-  border: #C1C1C1;
-  background-color: #ECECEC;
-  border-style: solid;
-  border-width: thin;
-
+.grey-links {
   a {
     color: #737373;
     font-weight: bold;
@@ -14,6 +9,20 @@
       text-decoration: none;
     }
   }
+}
+
+.border-line {
+  border: #E22323;
+  border-style: solid;
+  border-width: thin;
+  margin-bottom: 15px;
+}
+
+.last-ten-projects {
+  border: #C1C1C1;
+  background-color: #ECECEC;
+  border-style: solid;
+  border-width: thin;
 }
 
 .header {

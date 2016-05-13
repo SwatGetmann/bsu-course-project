@@ -7,7 +7,7 @@
 .col-md-12
   .row.header
      h1 Last Ten Projects
-.col-md-12.last-ten-projects
+.col-md-12.last-ten-projects.grey-links
   .row
     - @last_10_projects.each do |project|
       = render "projects/project_main", project: project

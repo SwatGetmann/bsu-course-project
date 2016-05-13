@@ -36,4 +36,8 @@ class Project < ActiveRecord::Base
     # TODO: implement has_many commits in project and belongs_to project in commits
     Commits.where(branch: self.branches).last
   end
+
+  def find_members(user)
+    members.with_user(user)
+  end
 end
