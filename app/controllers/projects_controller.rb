@@ -54,11 +54,11 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :private)
+    params.require(:project).permit(:name, :description, :private, :image, :remove_image)
   end
 
   def check_membership
-    unless current_user.projects.include? @project
+    if @project.private? && current_user.projects.exclude?(@project)
       flash[:error] = "You cannot view this project, because it is private"
       redirect_to :back # halts request cycle
     end

@@ -12,10 +12,9 @@
     span#commits = commits_short_info(project)
     span#right = link_to "Workspace", workspace_url(id: project.id)
     span#right = link_to "New Branch", new_project_branch_path(project)
-    .border-yellow
     .row
       .col-md-12
-        = render "branches/branch_list", branches: project.branches
+        = render "partials/branch_list", branches: project.branches
 
   #down-info
     #description = project.description

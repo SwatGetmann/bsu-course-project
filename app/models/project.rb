@@ -6,6 +6,12 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
 
+  mount_uploader :image, ImageUploader
+  validates_processing_of :image
+  validate :image_size_validation
+
+  scope :not_private, -> (){ where(private: false) }
+
   def add_author(user)
     members.create(user: user)
     members.first.create_role
@@ -19,7 +25,7 @@ class Project < ActiveRecord::Base
   end
 
   def author
-    members.first if members.first.role.is_author?
+    members.first.user if members.first.role.is_author?
   end
 
   def commits_count
@@ -33,5 +39,14 @@ class Project < ActiveRecord::Base
   def last_branch
     # TODO: implement has_many commits in project and belongs_to project in commits
     Commits.where(branch: self.branches).last
+  end
+
+  def find_members(user)
+    members.with_user(user)
+  end
+
+  private
+  def image_size_validation
+    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
   end
 end

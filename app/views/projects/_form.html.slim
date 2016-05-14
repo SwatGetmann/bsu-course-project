@@ -20,5 +20,13 @@
     = f.label :private
     br
     = f.check_box :private
+  .field
+    = f.label :image
+    br
+    = f.file_field :image
+    - if f.object.image?
+      = image_tag f.object.image.thumb.url
+      = f.label :remove_image
+      = f.check_box :remove_image
   .actions
     = f.submit

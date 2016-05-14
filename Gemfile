@@ -41,6 +41,9 @@ gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 gem "js-routes"
 
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

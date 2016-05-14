@@ -1,13 +1,13 @@
 p
   strong
-    | Muisc Workspace for project 
+    | Muisc Workspace for project
     = @project.name
 p
   strong
-    | Your role on the project: 
+    | Your role on the project:
     = role(current_user, @project)
 p
-  = render "branches/branch_list", branches: @branches
+  = render "partials/branch_list", branches: @branches
 br
 = render "workspace"
 = link_to "Back", :back

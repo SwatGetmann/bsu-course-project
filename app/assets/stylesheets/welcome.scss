@@ -1,3 +1,92 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.grey-links {
+  a {
+    color: #737373;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover, &:focus {
+      color: whitesmoke;
+      background-color: #737373;
+      text-decoration: none;
+    }
+  }
+}
+
+.border-line {
+  border: #E22323;
+  border-style: solid;
+  border-width: thin;
+  margin-bottom: 15px;
+}
+
+.last-ten-projects {
+  border: #C1C1C1;
+  background-color: #ECECEC;
+  border-style: solid;
+  border-width: thin;
+}
+
+.header {
+  color: #737373;
+  position: relative;
+  top: 21px;
+  margin-top: -32px;
+  padding-left: 15px;
+}
+
+.project-container {
+  padding-bottom: 15px;
+  color: #737373;
+}
+
+.header-info {
+  padding-top: 15px;
+}
+
+.header-stylish {
+  margin-top: 0px;
+  letter-spacing: 0px;
+}
+
+.centered-text{
+  text-align: center;
+}
+
+.role {
+  display: inline;
+  background-color: #eff099;
+  color: #ddab2c;
+  padding: 5px 5px 0px 5px;
+  border: 1px solid #f0d04c;
+  font-family: "BebasNeueRegular";
+  font-size: 18px;
+  position: relative;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
+.private {
+  display: inline;
+  background-color: rgba(255, 88, 72, 0.57);
+  color: #ba1b16;
+  padding: 5px 5px 0px 5px;
+  border: 1px solid #ff5747;
+  font-family: "BebasNeueRegular";
+  font-size: 18px;
+  float: right;
+  position: relative;
+}
+
+.header-marginated {
+  margin-top: 5px;
+}
+
+.margin-h1-header {
+  margin-top: 20px;
+}
+
+.bebas-font {
+  font-family: "BebasNeueRegular", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}

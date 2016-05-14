@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502031626) do
+ActiveRecord::Schema.define(version: 20160513210005) do
 
   create_table "branch_members", force: :cascade do |t|
     t.integer  "branch_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160502031626) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "private",     default: false
+    t.string   "image"
   end
 
   create_table "roles", force: :cascade do |t|
