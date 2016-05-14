@@ -15,9 +15,16 @@ body {
 .css2 { font-size: 0.8em; }
 .css3 { font-size: 1.2em; }
 .css4 { font-size: 1.6em; }
-.description {
+.description-container {
   padding: 32px;
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
+  background-color: rgba(244, 244, 244, 0.78);
+  color: #252525;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 .search {
   padding-top: 9px

@@ -68,7 +68,7 @@
 .private {
   display: inline;
   background-color: rgba(255, 88, 72, 0.57);
-  color: #ba1b16;
+  color: white;
   padding: 5px 5px 0px 5px;
   border: 1px solid #ff5747;
   font-family: "BebasNeueRegular";
@@ -89,4 +89,47 @@
   font-family: "BebasNeueRegular", Arial, Helvetica, sans-serif;
   font-size: 18px;
   letter-spacing: 1px;
+}
+
+.image {
+  width: 500px;
+  height: 500px;
+}
+
+.tint {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.project-name-row{
+  padding-top: 120px;
+}
+
+#project-name, #author-name {
+  padding-left: 120px;
+}
+
+#private-container {
+  padding-right: 32px;
+}
+
+#description {
+  padding: 0px 32px 0px 32px;
+}
+
+.white-links {
+  a {
+    color: rgba(244,244,244,0.9);
+    font-weight: bold;
+    text-decoration: none;
+    &:hover, &:focus {
+      color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(193, 193, 193, 0.45);
+      text-decoration: none;
+    }
+  }
 }

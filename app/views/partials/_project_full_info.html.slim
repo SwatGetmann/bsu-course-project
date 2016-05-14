@@ -3,19 +3,21 @@
     .col-md-6
       .row.headers
         .col-md-12
-          .row
-            .col-md-10
-              .project-name
-                h1 = link_to project.name, project_path(project)
-            .col-md-2.margin-h1-header
-              - if project.private?
-                .private Private
-          .author
-            h3 = link_to project.author.name, user_path(project.author)
-          .description
-            h5 = project.description
-          .image
-            = image_tag project.image.thumb.url
+          .image[style="background: url(#{project.image.thumb.url}) 50% 50% no-repeat"]
+            .tint.white-links
+              .row.project-name-row
+                .col-md-10.col-xs-10#project-name
+                  h1 = link_to project.name, project_path(project)
+                .col-md-2.col-xs-2.margin-h1-header#private-container
+                  - if project.private?
+                    .private Private
+              .row
+                .col-md-12.col-xs-12#author-name
+                  h3 = link_to project.author.name, user_path(project.author)
+              .row
+                .col-md-12.col-xs-12#description
+                  .description-container
+                    h5 = project.description
     .col-md-6.header-info
       .row
         .col-md-6

@@ -12,10 +12,8 @@
                 .private Private
           .author
             h3 = link_to project.author.name, user_path(project.author)
-          .description
+          .description-container
             h5 = project.description
-          .image
-            = image_tag project.image.thumb.url
   .border-line
   .row
     .col-md-12
