@@ -1,13 +1,10 @@
 .col-md-12.welcome-message
-  .row
-    h1
-      |  Welcome to my BSU Course Project!
-    h3
-      |  The Rails website for real-time collaboration and git-like features.
-.col-md-12
-  .row.header
-     h1 Last Ten Projects
+  h1
+    |  Welcome to my BSU Course Project!
+  h3
+    |  The Rails website for real-time collaboration and git-like features.
+.col-md-12.header
+  h1 Last Ten Projects
 .col-md-12.last-ten-projects.grey-links
-  .row
-    - @last_10_projects.each do |project|
-      = render "projects/project_main", project: project
+  - @last_10_projects.each do |project|
+    = render "projects/project_main", project: project
