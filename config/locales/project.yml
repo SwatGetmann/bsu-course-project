@@ -1,0 +1,11 @@
+en:
+  project:
+    private: 'Private'
+    branches_commits: 'Branches & Commits'
+    contributors: 'Contributors'
+    links: 'Links'
+    your_role: 'Your role on the project: '
+    set_role: 'Set Role?'
+    edit: 'Edit Project'
+    delete: 'Delete Project'
+    workspace: 'Workspace'

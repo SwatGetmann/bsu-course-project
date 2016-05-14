@@ -9,7 +9,7 @@
                 h1 = link_to project.name, project_path(project)
             .col-md-2.margin-h1-header
               - if project.private?
-                .private Private
+                .private
           .author
             h3 = link_to project.author.name, user_path(project.author)
           .description-container
@@ -17,6 +17,5 @@
   .border-line
   .row
     .col-md-12
-      h3.header-stylish
-        | Branches & Commits
+      h3.header-stylish = t('project.branches_commits')
       = render "partials/branch_commit_info", project: project

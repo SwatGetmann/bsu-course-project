@@ -10,7 +10,7 @@
                   h1 = link_to project.name, project_path(project)
                 .col-md-2.col-xs-2.margin-h1-header#private-container
                   - if project.private?
-                    .private Private
+                    .private = t('project.private')
               .row
                 .col-md-12.col-xs-12#author-name
                   h3 = link_to project.author.name, user_path(project.author)
@@ -21,41 +21,36 @@
     .col-md-6.header-info
       .row
         .col-md-6
-          span<>
-            |  Your role on the project:
+          span = t('project.your_role')
           span
             h4 = current_user_role(project)
         .col-md-6
-          a.bebas-font[href="#"]
-            | Set Role?
+          a.bebas-font[href="#"] = t('project.set_role')
       .row
         - if current_user_is_author(project)
           .col-md-4
-            h4 = link_to "Edit Project", edit_project_path(project)
+            h4 = link_to I18n.t('project.edit'), edit_project_path(project)
           .col-md-4
-            h4 = link_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }
+            h4 = link_to I18n.t('project.delete'), project, method: :delete, data: { confirm: "Are you sure?" }
         .col-md-4
-          h4 = link_to "Workspace", workspace_url(id: project.id)
+          h4 = link_to I18n.t('project.workspace'), workspace_url(id: project.id)
 
   .border-line
   .row
     .col-md-6
-      h3.header-stylish
-        | Branches & Commits
+      h3.header-stylish = t('project.branches_commits')
       = render "partials/branch_commit_info", project: project
       .row
         .col-md-12
           = render "partials/branch_list", branches: project.branches
           .border-line
     .col-md-6
-      h3.header-stylish
-        | Contributors
+      h3.header-stylish = t('project.contributors')
       = render "partials/contributor_list", project: project
   .row
     .col-md-9
     .col-md-3.grey-links
-      h3.header-stylish
-        | Links
+      h3.header-stylish = t('project.links')
       .row
         - if current_user_is_author(project)
           .col-md-6
