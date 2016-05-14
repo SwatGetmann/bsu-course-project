@@ -15,7 +15,7 @@
           .description
             h5 = project.description
           .image
-            = image_tag @project.image.thumb.url
+            = image_tag project.image.thumb.url
     .col-md-6.header-info
       .row
         .col-md-6
@@ -41,6 +41,10 @@
       h3.header-stylish
         | Branches & Commits
       = render "partials/branch_commit_info", project: project
+      .row
+        .col-md-12
+          = render "partials/branch_list", branches: project.branches
+          .border-line
     .col-md-6
       h3.header-stylish
         | Contributors

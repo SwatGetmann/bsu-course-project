@@ -1,0 +1,24 @@
+.col-md-6
+  .row.project-container.grey-links
+    .col-md-12
+      .row.headers
+        .col-md-12
+          .row
+            .col-md-10
+              .project-name
+                h1 = link_to project.name, project_path(project)
+            .col-md-2.margin-h1-header
+              - if project.private?
+                .private Private
+          .author
+            h3 = link_to project.author.name, user_path(project.author)
+          .description
+            h5 = project.description
+          .image
+            = image_tag project.image.thumb.url
+  .border-line
+  .row
+    .col-md-12
+      h3.header-stylish
+        | Branches & Commits
+      = render "partials/branch_commit_info", project: project
