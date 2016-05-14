@@ -102,7 +102,13 @@
   width: 100%;
   top: 0px;
   left: 0px;
-  background: rgba(0, 0, 0, 0.6);
+  // background: rgba(0, 0, 0, 0.39)
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 5px,
+    rgba(0, 0, 0, 0.3) 9px,
+    rgba(0, 0, 0, 0.3) 7px);
 }
 
 .project-name-row{
