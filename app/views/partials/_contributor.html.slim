@@ -1,0 +1,9 @@
+- members.each do |member|
+  .row.grey-links
+    .col-md-4.header-marginated
+      | PHOTO
+    .col-md-4
+      h4 = link_to member.user.name, user_path(member.user)
+    .col-md-4.header-marginated
+      .role = member.role.slug
+.row

@@ -1,0 +1,9 @@
+.row
+  .col-md-6
+    h4.centered-text = branches_short_info(project)
+  .col-md-6
+    h4.centered-text = commits_short_info(project)
+.row
+  .col-md-12
+    = render "partials/branch_list", branches: project.branches
+    .border-line

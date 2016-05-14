@@ -1,0 +1,7 @@
+.row.branch.grey-links
+  .col-md-6
+    .list-item
+    h4 = link_to branch.name, branch_path(branch)
+  .col-md-6
+    .commits-list
+      = render "partials/commit_list", commits: branch.commits, branch: branch
