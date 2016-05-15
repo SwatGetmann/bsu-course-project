@@ -27,5 +27,6 @@ module BsuCourseProject
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.paths << Rails.root.join('app', 'assets', 'src')
     config.assets.paths << Rails.root.join('app', 'assets', 'img')
+    config.assets.paths << Rails.root.join('app', 'assets', 'images')
   end
 end

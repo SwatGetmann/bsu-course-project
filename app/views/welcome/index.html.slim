@@ -9,7 +9,7 @@
 .content
   .parallax-bg.parallax-2
     .col-md-12.header
-      h1 Last Ten Projects
-    .col-md-12.last-ten-projects.grey-links
-      - @last_10_projects.each do |project|
+      h1 Last Four Projects
+    .col-md-12.last-four-projects.grey-links
+      - @last_four_projects.each do |project|
         = render "projects/project_main", project: project

@@ -9,7 +9,7 @@
                 h1 = link_to project.name, project_path(project)
             .col-md-2.margin-h1-header
               - if project.private?
-                .private
+                .private = t('project.private')
           .author
             h3 = link_to project.author.name, user_path(project.author)
           .description-container

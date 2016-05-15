@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  height: 1500px;
+  background-color: #333;
+}
+
+.parallax-bg {
+  padding: 300px 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.parallax-1 {
+  background-image: url(/images/parallax-1.jpg);
+}
+
+.parallax-2 {
+  background-image: url(/images/parallax-2.jpg);
+}
+
+.parallax-bg h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 70px;
+  font-family: 'BebasNeueRegular';
+}
+
+.parallax-bg h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 36px;
+  font-family: 'BebasNeueRegular';
+  padding: 0 120px;
+}

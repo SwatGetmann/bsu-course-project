@@ -1,7 +1,4 @@
 $( document ).ready(function() {
-
-  debugger
-
   var documentEl = $(document),
     parallaxBg1 = $('div.parallax-bg.parallax-1'),
     parallaxBg2 = $('div.parallax-bg.parallax-2');

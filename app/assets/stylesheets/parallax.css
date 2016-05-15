@@ -19,11 +19,11 @@
 }
 
 .parallax-1 {
-  background-image: url(image1.jpg);
+  background-image: url('../assets/images/parallax-1.jpg');
 }
 
 .parallax-2 {
-  background-image: url(image2.jpg);
+  background-image: url('../assets/images/parallax-2.jpg');
 }
 
 .parallax-bg h1 {
