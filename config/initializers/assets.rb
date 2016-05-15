@@ -9,4 +9,20 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile << '*.js, *.css'
-Rails.application.config.assets.precompile += %w( parallax.css parallax.js )
+Rails.application.config.assets.precompile += %w(
+  parallax.css
+  parallax.js
+  lib/bootstrap.min.js
+  lib/bootstrap-button.js
+  workspace/wavesurfer.js
+  workspace/wavesurfer.js
+  workspace/webaudio.js
+  workspace/drawer.js
+  workspace/scheduler.js
+  workspace/storage.js
+  workspace/jquery.knob.js
+  workspace/recorder.js
+  workspace/effects.js
+  workspace/main.js
+  workspace/vumeter.js
+)

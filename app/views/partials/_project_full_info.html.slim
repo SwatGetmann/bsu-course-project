@@ -25,7 +25,7 @@
           span
             h4 = current_user_role(project)
         .col-md-6
-          a.bebas-font[href="#"] = t('project.set_role')
+          a.bebas-font[href="#" data-behavior="set-role"] = t('project.set_role')
       .row
         - if current_user_is_author(project)
           .col-md-4
