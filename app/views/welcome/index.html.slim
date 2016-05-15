@@ -1,10 +1,15 @@
-.col-md-12.welcome-message
-  h1
-    |  Welcome to my BSU Course Project!
-  h3
-    |  The Rails website for real-time collaboration and git-like features.
-.col-md-12.header
-  h1 Last Ten Projects
-.col-md-12.last-ten-projects.grey-links
-  - @last_10_projects.each do |project|
-    = render "projects/project_main", project: project
+= stylesheet_link_tag "parallax"
+= javascript_include_tag :parallax
+
+.content
+  .parallax-bg.parallax-1
+    h1 DAViCS
+    h3 The Rails website for real-time collaboration and git-like features.
+
+.content
+  .parallax-bg.parallax-2
+    .col-md-12.header
+      h1 Last Ten Projects
+    .col-md-12.last-ten-projects.grey-links
+      - @last_10_projects.each do |project|
+        = render "projects/project_main", project: project
